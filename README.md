@@ -16,15 +16,19 @@ Personal Dashboard is a cross-platform desktop app 💻.
 ## ✨Features
 
 -   To-Do List
+    <br/>
     <img src="https://j.gifs.com/J8q6nP.gif">
 
 -   Goal Tracker
+    <br/>
     <img src="https://j.gifs.com/r2RkxE.gif">
 
 -   Stock Tracker
+    <br/>
     <img src="https://j.gifs.com/z6KpJY.gif">
 
 -   Event Calendar
+    <br/>
     <img src="https://j.gifs.com/J8q6g2.gif">
 
 -   Import & Export using JSON
