@@ -12,16 +12,15 @@ import { useDispatch } from "react-redux";
 import { toggleOpen } from "../../../features/AppStatusSlice";
 
 export default function StockTracker() {
-  const dispatch = useDispatch();
-  //console.log("Stock Tracker");
+    const dispatch = useDispatch();
 
-  return (
-    <Widget
-      title="StockTracker"
-      onClose={() => dispatch(toggleOpen({ app: "StockTracker" }))}
-      icon={<ShowChart style={{ color: "green" }} />}
-    >
-      <WatchList />
-    </Widget>
-  );
+    return (
+        <Widget
+            title="StockTracker"
+            onClose={() => dispatch(toggleOpen({ app: "StockTracker" }))}
+            icon={<ShowChart style={{ color: "green" }} />}
+        >
+            <WatchList />
+        </Widget>
+    );
 }

@@ -15,26 +15,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleOpen } from "../../../features/AppStatusSlice";
 
 export default function ToDoList() {
-  const dispatch = useDispatch();
-  const itemData = useSelector((state) => state.ToDoList.data);
-  //console.log("TODOLIST");
-  return (
-    <Widget
-      title="ToDoList"
-      icon={<PlaylistAddCheck style={{ color: "#D79C62" }} />}
-      onClose={() => dispatch(toggleOpen({ app: "ToDoList" }))}
-    >
-      <List
-        disablePadding
-        style={{ height: "calc(100% - 48px)", overflow: "auto" }}
-      >
-        {itemData.map((task) => {
-          return <ToDoListItem task={task} key={task.id} />;
-        })}
-        <ToDoListOption />
-      </List>
+    const dispatch = useDispatch();
+    const itemData = useSelector((state) => state.ToDoList.data);
+    return (
+        <Widget
+            title="ToDoList"
+            icon={<PlaylistAddCheck style={{ color: "#D79C62" }} />}
+            onClose={() => dispatch(toggleOpen({ app: "ToDoList" }))}
+        >
+            <List
+                disablePadding
+                style={{ height: "calc(100% - 48px)", overflow: "auto" }}
+            >
+                {itemData.map((task) => {
+                    return <ToDoListItem task={task} key={task.id} />;
+                })}
+                <ToDoListOption />
+            </List>
 
-      <ToDoListForm />
-    </Widget>
-  );
+            <ToDoListForm />
+        </Widget>
+    );
 }

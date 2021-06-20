@@ -14,47 +14,51 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleStockForm } from "../../../features/StockTrackerSlice";
 
 export default function WatchList() {
-  const dispatch = useDispatch();
-  const [fab, setFab] = React.useState(false);
-  const watchList = useSelector((state) => state.StockTracker.data);
+    const dispatch = useDispatch();
+    const [fab, setFab] = React.useState(false);
+    const watchList = useSelector((state) => state.StockTracker.data);
 
-  return (
-    <List
-      disablePadding
-      onMouseEnter={() => setFab(true)}
-      onMouseLeave={() => setFab(false)}
-      style={{ height: "calc(100% - 48px)", overflow: "auto" }}
-    >
-      <UpdateTime />
-
-      {Object.keys(watchList).map((listName) => {
-        return (
-          <>
-            <Typography>{listName}</Typography>
-            <Divider variant="middle" style={{ height: "3px" }} />
-            {watchList[listName].map((ticker) => (
-              <WatchListItem ticker={ticker} listName={listName} key={ticker} />
-            ))}
-          </>
-        );
-      })}
-      <WatchListForm />
-
-      <Zoom in={fab}>
-        <Fab
-          size="small"
-          style={{
-            position: "fixed",
-            right: "10%",
-            bottom: "5%",
-            color: "green",
-            backgroundColor: "white",
-          }}
-          onClick={() => dispatch(toggleStockForm())}
+    return (
+        <List
+            disablePadding
+            onMouseEnter={() => setFab(true)}
+            onMouseLeave={() => setFab(false)}
+            style={{ height: "calc(100% - 48px)", overflow: "auto" }}
         >
-          <Add />
-        </Fab>
-      </Zoom>
-    </List>
-  );
+            <UpdateTime />
+
+            {Object.keys(watchList).map((listName) => {
+                return (
+                    <>
+                        <Typography>{listName}</Typography>
+                        <Divider variant="middle" style={{ height: "3px" }} />
+                        {watchList[listName].map((ticker) => (
+                            <WatchListItem
+                                ticker={ticker}
+                                listName={listName}
+                                key={ticker}
+                            />
+                        ))}
+                    </>
+                );
+            })}
+            <WatchListForm />
+
+            <Zoom in={fab}>
+                <Fab
+                    size="small"
+                    style={{
+                        position: "fixed",
+                        right: "10%",
+                        bottom: "5%",
+                        color: "green",
+                        backgroundColor: "white",
+                    }}
+                    onClick={() => dispatch(toggleStockForm())}
+                >
+                    <Add />
+                </Fab>
+            </Zoom>
+        </List>
+    );
 }

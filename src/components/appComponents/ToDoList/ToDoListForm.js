@@ -17,65 +17,65 @@ import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 import format from "date-fns/format";
 
 export default function ToDoListForm() {
-  const dispatch = useDispatch();
-  const open = useSelector((state) => state.ToDoList.form);
+    const dispatch = useDispatch();
+    const open = useSelector((state) => state.ToDoList.form);
 
-  const title = React.useRef();
+    const title = React.useRef();
 
-  const [date, setDate] = React.useState(new Date().toLocaleDateString());
-  const [error, setError] = React.useState(false);
+    const [date, setDate] = React.useState(new Date().toLocaleDateString());
+    const [error, setError] = React.useState(false);
 
-  function handleSumbit(e) {
-    e.preventDefault();
-    if (title.current.value !== "") {
-      dispatch(addToDoList({ title: title.current.value, date: date }));
-      dispatch(toggleToDoForm());
-    } else {
-      setError(true);
+    function handleSumbit(e) {
+        e.preventDefault();
+        if (title.current.value !== "") {
+            dispatch(addToDoList({ title: title.current.value, date: date }));
+            dispatch(toggleToDoForm());
+        } else {
+            setError(true);
+        }
     }
-  }
 
-  return (
-    <FormDialog
-      open={open}
-      close={() => dispatch(toggleToDoForm())}
-      title="Add ToDo"
-    >
-      <FormControl>
-        <TextField
-          inputRef={title}
-          error={error}
-          onFocus={() => setError(false)}
-          margin="dense"
-          variant="outlined"
-          label="Title"
-          fullWidth
-          placeholder="Enter Here"
-          helperText={error ? "Title Required" : null}
-        />
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <DatePicker
-            format="MM/dd/yyyy"
-            margin="normal"
-            fullWidth
-            disablePast
-            inputVariant="outlined"
-            label="Due Date"
-            value={date}
-            onChange={(date) => setDate(format(date, "MM/dd/yyyy"))}
-          />
-        </MuiPickersUtilsProvider>
-
-        <Fab
-          variant="extended"
-          color="primary"
-          onClick={handleSumbit}
-          style={{ marginTop: "5%" }}
+    return (
+        <FormDialog
+            open={open}
+            close={() => dispatch(toggleToDoForm())}
+            title="Add ToDo"
         >
-          <Send />
-          Add
-        </Fab>
-      </FormControl>
-    </FormDialog>
-  );
+            <FormControl>
+                <TextField
+                    inputRef={title}
+                    error={error}
+                    onFocus={() => setError(false)}
+                    margin="dense"
+                    variant="outlined"
+                    label="Title"
+                    fullWidth
+                    placeholder="Enter Here"
+                    helperText={error ? "Title Required" : null}
+                />
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <DatePicker
+                        format="MM/dd/yyyy"
+                        margin="normal"
+                        fullWidth
+                        disablePast
+                        inputVariant="outlined"
+                        label="Due Date"
+                        value={date}
+                        onChange={(date) => setDate(format(date, "MM/dd/yyyy"))}
+                    />
+                </MuiPickersUtilsProvider>
+
+                <Fab
+                    variant="extended"
+                    color="primary"
+                    onClick={handleSumbit}
+                    style={{ marginTop: "5%" }}
+                >
+                    <Send />
+                    Add
+                </Fab>
+            </FormControl>
+        </FormDialog>
+    );
 }

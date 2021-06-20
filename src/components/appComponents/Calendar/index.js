@@ -12,29 +12,25 @@ import { useDispatch } from "react-redux";
 import { toggleOpen } from "../../../features/AppStatusSlice";
 
 export default function Calendar() {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  //console.log("Calendar");
+    //console.log("Calendar");
 
-  return (
-    <Widget
-      title="Calendar"
-      onClose={() => dispatch(toggleOpen({ app: "Calendar" }))}
-      icon={<Today style={{ color: "blue" }} />}
-      // fullscreen
-      // fullscreenClick={() => {
-      //   dispatch(toggleFullScreen());
-      // }}
-    >
-      <div
-        style={{
-          height: "calc(100% - 48px)",
-          overflow: "auto",
-          overflowX: "hidden",
-        }}
-      >
-        <EventCalendar />
-      </div>
-    </Widget>
-  );
+    return (
+        <Widget
+            title="Calendar"
+            onClose={() => dispatch(toggleOpen({ app: "Calendar" }))}
+            icon={<Today style={{ color: "blue" }} />}
+        >
+            <div
+                style={{
+                    height: "calc(100% - 48px)",
+                    overflow: "auto",
+                    overflowX: "hidden",
+                }}
+            >
+                <EventCalendar />
+            </div>
+        </Widget>
+    );
 }
