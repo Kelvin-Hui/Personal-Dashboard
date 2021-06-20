@@ -29,6 +29,7 @@ export default function ToDoListForm() {
         e.preventDefault();
         if (title.current.value !== "") {
             dispatch(addToDoList({ title: title.current.value, date: date }));
+            setDate(new Date().toLocaleDateString());
             dispatch(toggleToDoForm());
         } else {
             setError(true);

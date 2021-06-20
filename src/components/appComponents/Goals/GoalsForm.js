@@ -29,6 +29,7 @@ export default function GoalsForm() {
         e.preventDefault();
         if (goal.current.value !== "") {
             dispatch(addGoals({ goal: goal.current.value, date: date }));
+            setDate(new Date().toLocaleDateString());
             dispatch(toggleGoalsForm());
         } else {
             setError(true);

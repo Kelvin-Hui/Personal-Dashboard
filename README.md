@@ -5,7 +5,29 @@ Personal Dashboard is a cross-platform desktop app 💻.
 
 ## 👀Preview
 
+### Web View
+
 ![Project Image](assets/readmeimg.png)
+
+### Desktop Application View
+
+![Desktop Image](assets/desktopappimg.png)
+
+## ✨Features
+
+-   To-Do List
+    <img src="https://j.gifs.com/J8q6nP.gif">
+
+-   Goal Tracker
+    <img src="https://j.gifs.com/r2RkxE.gif">
+
+-   Stock Tracker
+    <img src="https://j.gifs.com/z6KpJY.gif">
+
+-   Event Calendar
+    <img src="https://j.gifs.com/J8q6g2.gif">
+
+-   Import & Export using JSON
 
 ## ⛏Installation
 
@@ -38,14 +60,6 @@ $ npm run start
 ```sh
 $ npm run build
 ```
-
-## ✨Features
-
--   To-Do List
--   Goal Tracker
--   Stock Tracker
--   Event Calendar
--   Import & Export using JSON
 
 ## 🔨Built with
 
