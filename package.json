@@ -21,6 +21,7 @@
     "concurrently": "^5.3.0",
     "date-fns": "^2.16.1",
     "electron-is-dev": "^1.2.0",
+    "firebase": "^8.6.8",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-big-calendar": "^0.30.0",

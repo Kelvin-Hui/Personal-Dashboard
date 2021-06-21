@@ -10,8 +10,6 @@ import { Rnd as ResizeAndDrag } from "react-rnd";
 // Importing Assets
 import pinIcon from "../../../assets/pinIcon.svg";
 import pinoffIcon from "../../../assets/pinoffIcon.svg";
-import fullscreenIcon from "../../../assets/fullscreenIcon.svg";
-import minscreenIcon from "../../../assets/minscreenIcon.svg";
 
 // Importing Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -100,23 +98,6 @@ export default function Widget(props) {
                     >
                         {props.icon}
                         {props.title}
-
-                        {props.fullscreen && (
-                            <IconButton
-                                size="small"
-                                style={styles.fullscreen_btn}
-                                onClick={props.fullscreenClick}
-                            >
-                                {status.full ? (
-                                    <img src={minscreenIcon} alt="minscreen" />
-                                ) : (
-                                    <img
-                                        src={fullscreenIcon}
-                                        alt="fullscreeen"
-                                    />
-                                )}
-                            </IconButton>
-                        )}
 
                         <IconButton
                             size="small"
